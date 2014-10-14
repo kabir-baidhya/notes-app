@@ -1,0 +1,15 @@
+{
+	"name"         : "notes-app",
+	"version"      : "1.0.0",
+	"description"  : "Basic Demo NotesApp with Node & Angular",
+	"main"         : "server.js",
+	"author"       : {
+		"name": "Kabir Baidhya",
+		"email": "kabeer182010@gmail.com"
+	},
+	"dependencies" : {
+		"express"    : ">=4.7.2",
+		"body-parser": ">=1.5.2",
+		"method-override": ">=2.1.2"
+	}
+}
