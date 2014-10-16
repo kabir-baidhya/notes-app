@@ -56,7 +56,9 @@ a {cursor: pointer;}
 .notes > li .block:hover {
   opacity: 1;
   border-color: #ccc;
+  box-shadow: 0 0 7px #ddd;
 }
+
 .notes > li .block h4 {
   background: #f6f7f8;
   border-bottom: 1px solid #e9eaed;
@@ -108,14 +110,57 @@ a {cursor: pointer;}
   opacity: 1;
 }
 
-#note-view .note-date {
+#note-modal-box .note-date {
   color: #999;
   font-size: 12px;
 }
 
-#note-form .form-horizontal .form-group {
-  margin: 15px 0;
+.header .nav.nav-pills {
+  margin-top: 5px;
 }
+
+.nav-pills>li>a {
+  border-radius: 2px!important;
+  padding: 6px 10px;
+}
+
+/** Bootstrap modal box modification */
+.modal-content {
+  border-radius: 3px;
+}
+
+.modal-content .modal-header {
+  background: #f6f7f8;
+  border-bottom-color: #e9eaed;
+  padding: 10px 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.modal-content .modal-header h4{
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.modal-content .modal-footer {
+  border: 0 none;
+  padding-top:15px;
+  margin-top: 0;
+}
+.modal-content .modal-footer .note-date{
+  padding: 10px 0;
+  border-top: 1px solid #e9eaed;
+  line-height: 16px;
+  color: #aaa;
+}
+.modal-content .modal-footer .note-date label{
+  font-weight: normal;
+}
+
+button.btn {
+  padding: 3px 12px;
+  border-radius: 2px;
+}
+
 
 
 @media (min-width: 768px) {
@@ -149,5 +194,5 @@ a {cursor: pointer;}
     width: 100%;
     float: none;
 
-  }  
+  }
 }
