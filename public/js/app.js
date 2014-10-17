@@ -98,6 +98,41 @@ NotesApp.controller('NotesCtrl', function ($scope) {
 		$scope.modalBox.type = 'view';
 	}
 
+	// Create note
+
+	$scope.createNote = function() {
+		$scope.modalBox.title = 'Add Note';
+		$scope.modalBox.type = 'create';
+		$scope.formData = {
+			noteTitle: '',
+			noteText: ''
+		};
+	};
+
+	$scope.createSave = function() {
+		//commit the updated changes 
+		var newTitle = $scope.formData.noteTitle;
+		var newText = $scope.formData.noteText;
+
+		//get new id for new note
+		var nthNote = $scope.noteList[$scope.noteList.length -1];
+		var newId = nthNote.id + 1;
+		
+		var note = {};
+		note.id = newId
+		note.title = newTitle;
+		note.text = newText;
+		note.previewText = newText.length > 150 ? newText.substring(0, 150) + '...' : newText;
+		note.date = (new Date()).toDateString();
+		$scope.noteList.push(note);
+		
+		$('#note-modal-box').modal('hide');
+	};
+
+	$scope.createCancel = function() {
+		$('#note-modal-box').modal('hide');
+	};
+
 
 
 });

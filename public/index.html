@@ -22,7 +22,7 @@
 	<div class="container">
 		<div class="header">
 			<ul class="nav nav-pills pull-right">
-				<li><a> <span class="glyphicon glyphicon-plus"></span> Create Note</a></li>
+				<li><a data-target="#note-modal-box" data-toggle="modal" ng-click="createNote()"> <span class="glyphicon glyphicon-plus"></span> Create Note</a></li>
 			</ul>
 			<h3 class="text-muted">NotesApp</h3>
 		</div>
@@ -38,7 +38,7 @@
 						<p>{{note.previewText}}</p>
 						<div class="bottom-part">
 							<span class="glyphicon glyphicon-ok-sign"></span>
-							<label>Wrote on</label><span>{{note.date}}</span>
+							<label>Wrote on</label> <span>{{note.date}}</span>
 						</div>
 					</div>
 				</li>
@@ -63,30 +63,38 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 					</button>
-					<a class="edit-note pull-right" ng-click="editNote()" ng-show="modalBox.type == 'view'">
+					<a class="edit-note pull-right" ng-click="editNote()" ng-if="modalBox.type == 'view'">
 						<span class="glyphicon glyphicon-ok-sign"></span> Edit
 					</a>
 					<h4 class="modal-title" id="note-modal-boxLabel">{{modalBox.title}}</h4>
 				</div>
 				<div class="modal-body">
-					<section ng-show="modalBox.type == 'view'">
+					<section ng-if="modalBox.type == 'view'">
 						<p>{{activeNote.text}}</p>
 						<div class="text-left note-date">
 							<span class="glyphicon glyphicon-ok-sign"></span>
 							<label>Wrote on </label> <span>{{activeNote.date}}</span>
 						</div>
 					</section>
-					<section ng-show="modalBox.type == 'edit'">
+					<section ng-if="modalBox.type == 'edit' || modalBox.type == 'create'">
 						<form class="form-horizontal" role="form" >
 							<input type="text" class="form-control" ng-model="formData.noteTitle" placeholder="Title" id="input-note-title">
 							<textarea class="form-control" ng-model="formData.noteText" rows="5" id="input-note-text" placeholder="Add Note"></textarea>
 							<div class="button-wrapper">
-								<button type="button" class="btn btn-primary" ng-click="editSave()">Save</button>
-								<button type="button" class="btn btn-default" ng-click="editCancel()">Cancel</button>
+								<div ng-if="modalBox.type == 'edit'">
+
+									<button type="button" class="btn btn-primary" ng-click="editSave()">Save</button>
+									<button type="button" class="btn btn-default" ng-click="editCancel()">Cancel</button>
+								</div>
+								<div ng-if="modalBox.type == 'create'">
+									
+									<button type="button" class="btn btn-primary" ng-click="createSave()">Add Note</button>
+									<button type="button" class="btn btn-default" ng-click="createCancel()">Cancel</button>
+								</div>
+
 							</div>
 						</form>
 					</section>
-					
 				</div>
 			</div>
 		</div>
