@@ -141,18 +141,14 @@ a {cursor: pointer;}
   line-height: 18px;
 }
 
-.modal-content .modal-footer {
-  border: 0 none;
-  padding-top:15px;
+.modal-content .note-date {
   margin-top: 0;
-}
-.modal-content .modal-footer .note-date{
   padding: 10px 0;
   border-top: 1px solid #e9eaed;
   line-height: 16px;
   color: #aaa;
 }
-.modal-content .modal-footer .note-date label{
+.modal-content .note-date label{
   font-weight: normal;
 }
 
