@@ -65,7 +65,41 @@ NotesApp.controller('NotesCtrl', function ($scope) {
 		}
 		
 		$scope.activeNote = noteItem;
-		$scope.modalBox.title = noteItem.title;
+
+		$scope.modalBox.title = $scope.activeNote.title;
+		$scope.modalBox.type = 'view';
 	};
 
+	// Edit note
+
+	$scope.editNote = function() {
+		$scope.modalBox.title = 'Edit Note';
+		$scope.modalBox.type = 'edit';
+		$scope.formData = {
+			noteTitle: $scope.activeNote.title,
+			noteText: $scope.activeNote.text
+		};
+	};
+
+	$scope.editSave = function() {
+		//commit the updated changes 
+		var updatedTitle = $scope.formData.noteTitle;
+		var updatedText = $scope.formData.noteText;
+
+		$scope.activeNote.title = updatedTitle;
+		$scope.activeNote.text = updatedText;
+		$scope.activeNote.previewText = updatedText.length > 150 ? updatedText.substring(0, 150) + '...' : updatedText;
+
+		$('#note-modal-box').modal('hide');
+	};
+
+	$scope.editCancel = function() {
+		$scope.modalBox.title = $scope.activeNote.title;
+		$scope.modalBox.type = 'view';
+	}
+
+
+
 });
+
+	

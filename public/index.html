@@ -38,7 +38,7 @@
 						<p>{{note.previewText}}</p>
 						<div class="bottom-part">
 							<span class="glyphicon glyphicon-ok-sign"></span>
-							<label>Wrote on</label> <span>{{note.date}}</span>
+							<label>Wrote on</label><span>{{note.date}}</span>
 						</div>
 					</div>
 				</li>
@@ -55,6 +55,7 @@
 	<script src="packages/jquery-2.1.1.min.js"></script>
 	<script src="packages/bootstrap-3.2.0/js/bootstrap.min.js"></script>
 
+
 	<div class="modal fade" id="note-modal-box" tabindex="-1" role="dialog" aria-labelledby="note-modal-boxLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -62,17 +63,31 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 					</button>
+					<a class="edit-note pull-right" ng-click="editNote()" ng-show="modalBox.type == 'view'">
+						<span class="glyphicon glyphicon-ok-sign"></span> Edit
+					</a>
 					<h4 class="modal-title" id="note-modal-boxLabel">{{modalBox.title}}</h4>
 				</div>
 				<div class="modal-body">
-					<p>{{activeNote.text}}</p>
-					<div class="text-left note-date">
-						<span class="glyphicon glyphicon-ok-sign"></span>
-						<label>Wrote on</label> <span>{{activeNote.date}}</span>
-					</div>
+					<section ng-show="modalBox.type == 'view'">
+						<p>{{activeNote.text}}</p>
+						<div class="text-left note-date">
+							<span class="glyphicon glyphicon-ok-sign"></span>
+							<label>Wrote on </label> <span>{{activeNote.date}}</span>
+						</div>
+					</section>
+					<section ng-show="modalBox.type == 'edit'">
+						<form class="form-horizontal" role="form" >
+							<input type="text" class="form-control" ng-model="formData.noteTitle" placeholder="Title" id="input-note-title">
+							<textarea class="form-control" ng-model="formData.noteText" rows="5" id="input-note-text" placeholder="Add Note"></textarea>
+							<div class="button-wrapper">
+								<button type="button" class="btn btn-primary" ng-click="editSave()">Save</button>
+								<button type="button" class="btn btn-default" ng-click="editCancel()">Cancel</button>
+							</div>
+						</form>
+					</section>
+					
 				</div>
-				
-				
 			</div>
 		</div>
 	</div>

@@ -2,10 +2,10 @@
  * NoteApp Server-Side 
  */
 
-var express  = require('express');
-var app      = express(); 	
-var bodyParser = require('body-parser'); 
-var methodOverride = require('method-override');
+var express  		= require('express');
+var app      		= express(); 	
+var bodyParser 		= require('body-parser'); 
+var methodOverride 	= require('method-override');
 
 /** ================================================ */
 var serverPort = 3271;

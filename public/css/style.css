@@ -109,20 +109,6 @@ a {cursor: pointer;}
   opacity: 1;
 }
 
-#note-modal-box .note-date {
-  color: #999;
-  font-size: 12px;
-}
-
-.header .nav.nav-pills {
-  margin-top: 5px;
-}
-
-.nav-pills>li>a {
-  border-radius: 2px!important;
-  padding: 6px 10px;
-}
-
 /** Bootstrap modal box modification */
 .modal-content {
   border-radius: 3px;
@@ -141,7 +127,7 @@ a {cursor: pointer;}
 }
 
 .modal-content .note-date {
-  margin-top: 0;
+  margin-top: 25px;
   padding: 10px 0;
   border-top: 1px solid #e9eaed;
   line-height: 16px;
@@ -151,9 +137,49 @@ a {cursor: pointer;}
   font-weight: normal;
 }
 
+
+.modal-content form .form-control {
+  border: 1px solid #e5e5e5;
+  box-shadow: none!important;
+  border-radius: 0;
+  border-style: dotted;
+  margin-bottom: 10px;
+}
+
+.modal-content form .form-control:focus {
+  border-color: #aaa;
+}
+
+.modal-content .button-wrapper {
+  margin: 25px -15px 0;
+  padding: 15px 15px 0;
+  border-top: 1px solid #e5e5e5;
+  text-align: right;
+}
+
 button.btn {
   padding: 3px 12px;
   border-radius: 2px;
+}
+
+.modal-content .button-wrapper .btn {
+  margin-left: 5px;
+}
+
+a.edit-note {
+  font-size: 12px;
+  display: inline-block;
+  padding: 1px 4px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+#input-note-title {
+  font-weight: bold;
+}
+
+#input-note-text {
+ max-width: 100%;
 }
 
 @media (min-width: 768px) {
