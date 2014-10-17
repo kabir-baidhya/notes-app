@@ -58,7 +58,6 @@ a {cursor: pointer;}
   border-color: #ccc;
   box-shadow: 0 0 7px #ddd;
 }
-
 .notes > li .block h4 {
   background: #f6f7f8;
   border-bottom: 1px solid #e9eaed;
@@ -157,8 +156,6 @@ button.btn {
   border-radius: 2px;
 }
 
-
-
 @media (min-width: 768px) {
   .container {
     max-width: 730px;
@@ -190,5 +187,5 @@ button.btn {
     width: 100%;
     float: none;
 
-  }
+  }  
 }
